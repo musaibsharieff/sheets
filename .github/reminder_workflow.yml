@@ -1,0 +1,28 @@
+name: Send Reminder Email
+
+on:
+  schedule:
+    - cron: '0 20 * * *'  # Schedule to run at 8 PM IST every day
+
+jobs:
+  send_reminder_email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Python Script
+      run: python sheets-reminder.py
+      env:
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
