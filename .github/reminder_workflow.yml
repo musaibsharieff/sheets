@@ -2,8 +2,7 @@ name: Send Reminder Email
 
 on:
   schedule:
-    - cron: '0 20 * * *'  # Schedule to run at 8 PM IST every day
-
+    - cron: '5 12 * * *'  
 jobs:
   send_reminder_email:
     runs-on: ubuntu-latest
