@@ -6,16 +6,16 @@ import schedule
 import time
 
 def send_reminder_email():
-    sender_email = "musaibsharieff@gmail.com"
-    sender_password = "axwg hqpn ewmo zday"
+    sender_email = os.getenv('SENDER_EMAIL')
+    sender_password = os.getenv('SENDER_PASSWORD')
     receivers = ["rayhanmohamedgui@gmail.com"]
 
     message = MIMEMultipart()
     message['From'] = sender_email
     message['To'] = ", ".join(receivers)
-    message['Subject'] = "Reminder: Fill in the Google Sheet"
+    message['Subject'] = "Reminder: Fill in the Namaz Sheet"
 
-    body = "Hi friends,\n\nThis is a friendly reminder to fill in the Google Sheet. Thank you!\n\nBest regards,\nYour Name"
+    body = "Hi Rayhan,\n\nThis is a friendly reminder to fill in the Namaz attendance Sheet.\n https://docs.google.com/spreadsheets/d/1jhjns5o8u9-bktoqhTKtrWg-YIO8qQg4-s7VtTIwVdI/edit#gid=0  Thank you!\n\nBest regards,\nMusaib Sharieff"
 
     message.attach(MIMEText(body, 'plain'))
 
