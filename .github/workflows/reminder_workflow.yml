@@ -2,7 +2,7 @@ name: Send Reminder Email
 
 on:
   schedule:
-    - cron: '30 18 * * *'  
+    - cron: '15 13 * * *'  
 jobs:
   send_reminder_email:
     runs-on: ubuntu-latest
